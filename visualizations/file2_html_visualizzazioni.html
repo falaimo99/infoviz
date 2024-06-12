@@ -1,0 +1,32 @@
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+</head>
+
+<body>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+    <script>
+        var data = [
+  {
+    x: ['woman', 'man', 'nudity', 'sky', 'tree', 'sitting', 'Virgin Mary', 'waist-length hair', 'Jesus', 'cloud'],
+    y: [1159, 637, 349, 345, 296, 285, 254, 250, 191, 186],
+    type: 'bar',
+    marker: {
+      color: 'rgb(176, 191, 26)' 
+    }
+  }];
+
+    var layout = {
+    title: 'Symbols with the most occurences', 
+    xaxis: {
+    title: 'Symbols'
+  },
+  yaxis: {
+    title: 'Occurrences'
+  }
+  }
+
+
+Plotly.newPlot('myDiv', data, layout);
+    </script>
+</body>

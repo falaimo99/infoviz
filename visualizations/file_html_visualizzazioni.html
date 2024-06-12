@@ -1,0 +1,123 @@
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+</head>
+
+<body>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+  <script>
+  var woman = {
+    x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+    y: [6, 8, 98, 129, 115, 62, 477, 228, 6, 30],
+    mode: 'lines+markers',
+    connectgaps: true,
+    name: 'woman',
+    line: {
+      color: '#B0BF1A', // Colore della linea
+      width: 2 // Larghezza della linea
+    },
+    marker: {
+      color: '#B0BF1A',
+      size:8
+    }
+  };
+  
+  var man = {
+    x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+    y: [null, 4, 61, 86, 117, 42, 248, 73, 3, 3],
+    mode: 'lines+markers',
+    connectgaps: true,
+    name: 'man',
+    line: {
+      color: '#0048BA', // Colore della linea
+      width: 2 // Larghezza della linea
+    },
+    marker: {
+      color: '#0048BA',
+      size:8
+    }
+  };
+  var nudity = {
+    x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+    y: [null, null, 2, 45, 38, 19, 151, 77, 4, 13],
+    mode: 'lines+markers',
+    connectgaps: true,
+    name: 'nudity',
+    line: {
+      color: '#3B7A57', // Colore della linea
+      width: 2 // Larghezza della linea
+    },
+    marker: {
+      color: '#3B7A57',
+      size:8
+    }
+  };
+  var sky = {
+    x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+    y: [null, null, 10, 32, 56, 17, 184, 36, 4, 6],
+    mode: 'lines+markers',
+    connectgaps: true,
+    name: 'sky',
+    line: {
+      color: '#AF002A', // Colore della linea
+      width: 2 // Larghezza della linea
+    },
+    marker: {
+      color: '#AF002A',
+      size:8
+    }
+  };
+  var tree = {
+    x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+    y: [null, null, 8, 27, 51, 18, 141, 37, null, 14],
+    mode: 'lines+markers',
+    connectgaps: true,
+    name: 'tree',
+    line: {
+      color: '#FFBF00', // Colore della linea
+      width: 2 // Larghezza della linea
+    },
+    marker: {
+      color: '#FFBF00',
+      size:8
+    }
+  };
+
+  
+  var data = [woman, man, nudity, sky, tree];
+  
+  var layout = {
+    title: {
+      text: 'Evolution of symbols through time',
+      font: {
+          family: 'Arial, sans-serif',
+          size: 18,
+          color: 'black'
+},
+    },
+    showlegend: true,
+    xaxis: {
+      title: {
+        text: 'Century',
+        font: {
+          family: 'Arial, sans-serif',
+          size: 18,
+          color: 'black'
+        }
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Occurences of symbols',
+        font: {
+          family: 'Arial, sans-serif',
+          size: 18,
+          color: 'black'
+        }
+      }
+    }
+  };
+  
+  Plotly.newPlot('myDiv', data, layout);
+  </script>
+</body>
