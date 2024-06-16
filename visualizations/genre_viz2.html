@@ -1,0 +1,49 @@
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+</head>
+
+<body>
+    
+	<div id='myDiv'></div>
+    <script>var trace1 = {
+        x: ['Baroque', 'Dutch golden age painting', 'Impressionism', 'Realism'],
+        y: [18, 7, 3, 5],
+        name: 'Still',
+        type: 'bar',
+      };
+      
+      var trace2 = {
+        x: ['Baroque', 'Dutch golden age painting', 'Impressionism', 'Realism'],
+        y: [80, 32, 45, 22],
+        name: 'Portrait',
+        type: 'bar',
+      };
+      
+      var trace3 = {
+        x: ['Baroque', 'Dutch golden age painting', 'Impressionism', 'Realism'],
+        y: [38, 13, 41, 6],
+        name: 'Scape',
+        type: 'bar',
+      };
+      var trace4 = {
+        x: ['Baroque', 'Dutch golden age painting', 'Impressionism', 'Realism'],
+        y: [160, 43, 80, 78],
+        name: 'Other',
+        type: 'bar',
+      };
+      
+      var data = [trace1, trace2, trace3, trace4];
+      
+      var layout = {
+        scattermode: 'group',
+        title: 'Grouped genres by movement',
+        xaxis: {title: 'Movements'},
+        yaxis: {title: 'Number of occurences per genre'},
+        barcornerradius: 15,
+      };
+      
+      Plotly.newPlot('myDiv', data, layout);
+      </script>
+    
+</body>
