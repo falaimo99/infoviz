@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gantt Chart</title>
+    <style>
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+</head>
+<body>
+    <div id="chartdiv"></div>
+
+    <script>
+        am5.ready(function() {
+            // Create root element
+            var root = am5.Root.new("chartdiv");
+            root.dateFormatter.setAll({
+                dateFormat: "yyyy",
+                dateFields: ["valueX", "openValueX"]
+            });
+
+            // Set themes
+            root.setThemes([
+                am5themes_Animated.new(root)
+            ]);
+
+            // Create chart
+            var chart = root.container.children.push(am5xy.XYChart.new(root, {
+                panX: false,
+                panY: false,
+                wheelX: "none",
+                wheelY: "none",
+                paddingLeft: 0,
+                layout: root.verticalLayout
+            }));
+
+            // Add legen
+
+            var colors = chart.get("colors");
+
+            // Data
+            var data = [{
+                category: "Italian Renaissance",
+                start: new Date(1350, 0, 1).getTime(),
+                end: new Date(1700, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(0), 0)
+                },
+                task: "Italian Renaissance"
+            }, {
+                category: "High Renaissance",
+                start: new Date(1494, 0, 1).getTime(),
+                end: new Date(1527, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(2), 0)
+                },
+                task: "High Renaissance"
+            }, {
+                category: "German Renaissance",
+                start: new Date(1500, 0, 1).getTime(),
+                end: new Date(1600, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(4), 0)
+                },
+                task: "German Renaissance"
+            },  {
+                category: "Mannerism",
+                start: new Date(1520, 0, 1).getTime(),
+                end: new Date(1600, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(6), 0)
+                },
+                task: "Mannerism"
+            },  {
+                category: "Baroque",
+                start: new Date(1590, 0, 1).getTime(),
+                end: new Date(1750, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(8), 0)
+                },
+                task: "Baroque"
+            },
+            {
+                category: "Rococo",
+                start: new Date(1730, 0, 1).getTime(),
+                end: new Date(1780, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(10), 0)
+                },
+                task: "Rococo"
+            },{
+                category: "Neoclassicism",
+                start: new Date(1760, 0, 1).getTime(),
+                end: new Date(1830, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(12), 0)
+                },
+                task: "Neoclassicism"
+            },{
+                category: "Romanticism",
+                start: new Date(1800, 0, 1).getTime(),
+                end: new Date(1900, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(14), 0)
+                },
+                task: "Romanticism"
+            },
+            {
+                category: "Symbolism",
+                start: new Date(1857, 0, 1).getTime(),
+                end: new Date(1905, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(16), 0)
+                },
+                task: "Symbolism"
+            },
+            {
+                category: "Impressionism",
+                start: new Date(1860, 0, 1).getTime(),
+                end: new Date(1886, 0, 1).getTime(),
+                columnSettings: {
+                    fill: am5.Color.brighten(colors.getIndex(18), 0)
+                },
+                task: "Impressionism"
+            }];
+
+            // Create axes
+            var yRenderer = am5xy.AxisRendererY.new(root, {
+                minorGridEnabled: false,
+                grid:null,
+                gridopacity: null
+            });
+           
+
+            var yAxis = chart.yAxes.push(
+                am5xy.CategoryAxis.new(root, {
+                    categoryField: "category",
+                    renderer: yRenderer,
+                    tooltip: am5.Tooltip.new(root, {})
+                })
+            );
+
+            yAxis.data.setAll([
+                { category: "Italian Renaissance" },
+                { category: "High Renaissance" },
+                { category: "German Renaissance" },
+                { category: "Mannerism" },
+                { category: "Baroque" },
+                { category: "Rococo" },
+                { category: "Neoclassicism" },
+                { category: "Romanticism" },
+                { category: "Symbolism" },
+                { category: "Impressionism" }
+            ]);
+
+            var xAxis = chart.xAxes.push(
+                am5xy.DateAxis.new(root, {
+                    baseInterval: { timeUnit: "year", count: 2 },
+                    renderer: am5xy.AxisRendererX.new(root, {
+                        strokeOpacity: 0.1,
+                        minorGridEnabled: false,
+                        grid:null,
+                        minGridDistance: 50
+                    })
+                })
+            );
+
+            // Add series
+            var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+                xAxis: xAxis,
+                yAxis: yAxis,
+                openValueXField: "start",
+                valueXField: "end",
+                categoryYField: "category",
+                sequencedInterpolation: false
+            }));
+
+            series.columns.template.setAll({
+                templateField: "columnSettings",
+                strokeOpacity: 0,
+                tooltipText: "{task}:\n[bold]{openValueX}[/] - [bold]{valueX}[/]",
+                
+            });
+
+            series.data.setAll(data);
+        });
+    </script>
+</body>
+</html>
