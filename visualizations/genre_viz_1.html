@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales by State Chart</title>
+  <style>
+    #chartdiv {
+      width: 100%;
+      height: 800px;
+    }
+  </style>
+  <!-- Resources -->
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+</head>
+<body>
+  <!-- Chart code -->
+  <script>
+    am5.ready(function() {
+    
+    // Create root element
+    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+    var root = am5.Root.new("chartdiv");
+    
+    
+    // Set themes
+    // https://www.amcharts.com/docs/v5/concepts/themes/
+    root.setThemes([
+      am5themes_Animated.new(root)
+    ]);
+    
+    
+    // Create chart
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {
+      panX: false,
+      panY: false,
+      wheelX: "none",
+      wheelY: "none",
+      layout: root.horizontalLayout,
+      paddingLeft: 0
+    }));
+    
+    
+    // Add legend
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+    var legendData = [];
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        nameField: "name",
+        fillField: "color",
+        strokeField: "color",
+        //centerY: am5.p50,
+        marginLeft: 20,
+        y: 20,
+        layout: root.verticalLayout,
+        clickTarget: "none"
+      })
+    );
+    
+    var data = [  {
+      region: "Realism",
+      state: "Religious___art",
+      sales: 2
+    }, {
+      region: "Realism",
+      state: "Mythological___painting",
+      sales: 2
+    }, {
+      region: "Realism",
+      state: "___Allegory",
+      sales: 2
+    }, {
+      region: "Realism",
+      state: "___Self-portrait",
+      sales: 3
+    }, {
+      region: "Realism",
+      state: "___Nude",
+      sales: 3
+    }, {
+      region: "Realism",
+      state: "Landscape___painting",
+      sales: 5
+    },{
+      region: "Realism",
+      state: "Figure__painting",
+      sales: 6
+    },{
+      region: "Realism",
+      state: "___Portrait",
+      sales: 18
+    },{
+      region: "Realism",
+      state: "Genre___art",
+      sales: 18
+    }, {
+      region: "Impressionism",
+      state: "_Allegory_",
+      sales: 2
+    },  {
+      region: "Impressionism",
+      state: "__Self-portrait",
+      sales: 3
+    }, {
+      region: "Impressionism",
+      state: "Religious__art",
+      sales: 3
+    }, {
+      region: "Impressionism",
+      state: "Mythological__painting",
+      sales: 4
+    }, {
+      region: "Impressionism",
+      state: "History__painting",
+      sales: 4
+    }, {
+      region: "Impressionism",
+      state: "Figure_painting",
+      sales: 7
+    }, {
+      region: "Impressionism",
+      state: "_Nude_",
+      sales: 10
+    }, {
+      region: "Impressionism",
+      state: "Landscape__painting",
+      sales: 37
+    }, {
+      region: "Impressionism",
+      state: "Genre__art",
+      sales: 37
+    }, {
+      region: "Impressionism",
+      state: "_Portrait_",
+      sales: 40
+    },{
+      region: "Dutch golden age painting",
+      state: "_Nude",
+      sales: 1
+    }, {
+      region: "Dutch golden age painting",
+      state: "History_painting",
+      sales: 1
+    }, {
+      region: "Dutch golden age painting",
+      state: "_Self-portrait",
+      sales: 3
+    }, {
+      region: "Dutch golden age painting",
+      state: "Religious_art",
+      sales: 4
+    }, {
+      region: "Dutch golden age painting",
+      state: "Mythological_painting",
+      sales: 4
+    }, {
+      region: "Dutch golden age painting",
+      state: "Landscape_painting",
+      sales: 12
+    }, {
+      region: "Dutch golden age painting",
+      state: "Genre_art",
+      sales: 19
+    }, {
+      region: "Dutch golden age painting",
+      state: "_Portrait",
+      sales: 30
+    },  {
+      region: "Baroque",
+      state: "Nude",
+      sales: 6
+    }, {
+      region: "Baroque",
+      state: "Allegory",
+      sales: 6
+    }, {
+      region: "Baroque",
+      state: "History painting",
+      sales: 7
+    }, {
+      region: "Baroque",
+      state: "Self-portrait",
+      sales: 8
+    }, {
+      region: "Baroque",
+      state: "Mythological painting",
+      sales: 29
+    }, {
+      region: "Baroque",
+      state: "Genre art",
+      sales: 30
+    }, {
+      region: "Baroque",
+      state: "Landscape painting",
+      sales: 36
+    }, {
+      region: "Baroque",
+      state: "Religious art",
+      sales: 67
+    }, {
+      region: "Baroque",
+      state: "Portrait",
+      sales: 67
+    }];
+    
+    
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
+      categoryField: "state",
+      renderer: am5xy.AxisRendererY.new(root, {
+        minGridDistance: 10,
+        minorGridEnabled: true
+      }),
+    }));
+    
+    yAxis.get("renderer").labels.template.setAll({
+      fontSize: 12,
+      location: 0.5
+    })
+
+    yAxis.data.setAll(data);
+
+    yAxis.get("renderer").labels.template.adapters.add("text", function(text, target) {
+    if (target.dataItem && target.dataItem.dataContext && target.dataItem.dataContext.state) {
+        return String(target.dataItem.dataContext.state).replaceAll('_', ' ').replaceAll('  ', ' ').replaceAll('  ', ' ');
+    }
+    return text;
+    });
+
+    
+
+    
+    var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+      renderer: am5xy.AxisRendererX.new(root, {}),
+      tooltip: am5.Tooltip.new(root, {})
+    }));
+    
+    
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+      xAxis: xAxis,
+      yAxis: yAxis,
+      valueXField: "sales",
+      categoryYField: "state",
+      tooltip: am5.Tooltip.new(root, {
+        pointerOrientation: "horizontal"
+      })
+    }));
+    
+    series.columns.template.setAll({
+      tooltipText: "{categoryY}: [bold]{valueX}[/]",
+      width: am5.percent(90),
+      strokeOpacity: 0
+    });
+
+
+    
+    series.columns.template.adapters.add("fill", function(fill, target) {
+      if (target.dataItem) {
+        switch(target.dataItem.dataContext.region) {
+          case "Realism":
+            return chart.get("colors").getIndex(0);
+            break;
+          case "Impressionism":
+            return chart.get("colors").getIndex(1);
+            break;
+          case "Dutch golden age painting":
+            return chart.get("colors").getIndex(2);
+            break;
+          case "Baroque":
+            return chart.get("colors").getIndex(3);
+            break;
+        }
+      }
+      return fill;
+    });
+    series.columns.template.adapters.add("tooltipText", function(text, target) {
+        if (target.dataItem && target.dataItem.dataContext && target.dataItem.dataContext.state) {
+          return String(target.dataItem.dataContext.state).replaceAll('_', ' ').replaceAll('  ', ' ').replaceAll('  ', ' ') + ": [bold]" + target.dataItem.dataContext.sales + "[/]";
+        }
+        return text;
+      });
+    
+    series.data.setAll(data);
+    
+    function createRange(label, category, color) {
+      var rangeDataItem = yAxis.makeDataItem({
+        category: category
+      });
+      
+      var range = yAxis.createAxisRange(rangeDataItem);
+      
+      rangeDataItem.get("label").setAll({
+        fill: color,
+        text: label,
+        location: 1,
+        fontWeight: "bold",
+        dx: -130
+      });
+    
+      rangeDataItem.get("grid").setAll({
+        stroke: color,
+        strokeOpacity: 1,
+        location: 1
+      });
+      
+      rangeDataItem.get("tick").setAll({
+        stroke: color,
+        strokeOpacity: 1,
+        location: 1,
+        visible: true,
+        length: 130
+      });
+      
+      legendData.push({ name: label, color: color });
+      
+    }
+    
+    createRange("Realism", "___Portrait", chart.get("colors").getIndex(0));
+    createRange("Impressionism", "Genre__art", chart.get("colors").getIndex(1));
+    createRange("Dutch golden age painting", "Genre_art", chart.get("colors").getIndex(2));
+    createRange("Baroque", "Portrait", chart.get("colors").getIndex(3));
+    
+    legend.data.setAll(legendData);
+    
+    // Add cursor
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+    var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+      xAxis: xAxis,
+      yAxis: yAxis
+    }));
+    
+    
+    // Make stuff animate on load
+    // https://www.amcharts.com/docs/v5/concepts/animations/
+    series.appear();
+    chart.appear(1000, 100);
+    
+    }); // end am5.ready()
+  </script>
+  
+  <!-- HTML -->
+  <div id="chartdiv"></div>
+</body>
+</html>
