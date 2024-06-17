@@ -50,6 +50,10 @@
         width: 100%;
         height: 600px;
     }
+
+    .faq-content2 {
+      padding: 10%; /* Aggiungi il padding che preferisci */
+    }
 </style>
 
   <!-- =======================================================
@@ -78,7 +82,7 @@
           <li><a href="#about">The project</a></li>
           <li><a href="#portfolio">Symbols</a></li>
           <li><a href="#services">Genres</a></li>
-          <li><a href="#team">Team</a></li>
+          <li><a href="#faq-2">Conclusions</a></li>
           <!-- <li><a href="#pricing">Pricing</a></li> -->
           <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -206,7 +210,7 @@
             <p>
               Welcome to our project, where we explore the fascinating world of art through the lens of digital humanities. Our website delves into the rich cultural heritage of artworks, examining how symbols and genres evolve over time. By leveraging the power of Wikidata and Semantic Web technologies, we uncover hidden patterns and insights that reveal the dynamic nature of artistic expression.
             </p>
-            <a href="https://github.com/falaimo99/infoviz/blob/main/data/data_cleaning.ipynb" class="read-more" id="download-link" download>
+            <a href="https://github.com/falaimo99/infoviz/blob/main/data/data_cleaning.ipynb" class="read-more" id="download-link" target="_blank" download>
               <span id="download-span">Go to the documentation</span>
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -244,7 +248,7 @@
               <div class="faq-item">
 
                 <h3><center><span>01</span> How do the subjects of artworks change through time?</center></h3>
-                <div class="faq-content">
+                <div class="faq-content2">
                   <p><center>What are the most common symbols in Wikidata 2D artworks attributed to an artist?</center></p>
                   <p><center>How often do they appear through the centuries?</center></p>
                 </div>
@@ -253,7 +257,7 @@
 
               <div class="faq-item">
                 <h3><center><span>02</span> How does the distribution of the artworks' genre change in different artistic movements?</center></h3>
-                <div class="faq-content">
+                <div class="faq-content2">
                   <p><center>What are the artistic movements with the highest number of notable works present in wikidata and how are they distributed in time?</center></p>
                   <p><center>What are the most frequent genres and how their frequency changes in different movements?</center></p>
                   <p><center>Taking couples of opposed genres (e.g. landscape/portrait), how does the frequency of each genre of the couple, i.e. their ratio, vary throughout the movements?</center></p>
@@ -1921,13 +1925,12 @@
     <section id="faq-2" class="faq-2 section">
 
       <!-- Section Title -->
-      <!-- <div class="container section-title" data-aos="fade-up">
-        <h2>Results</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div> -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Conclusions</h2>
+      </div>
       <!-- End Section Title -->
 
-      <!-- <div class="container">
+      <div class="container">
 
         <div class="row justify-content-center">
 
@@ -1937,27 +1940,37 @@
 
               <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                <h3>What did we learn about symbols?</h3>
                 <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                  <li>The most frequent symbols in artworks are related to the human figure and religion, with natural elements like the sky, trees, and clouds also appearing often.
+                  </li>
+                  <li>Throughout history, these symbols have shifted. Early artworks were dominated by religious symbols. Starting in the 17th century, nature became more prominent, with more depictions of nudity and, by the 20th century, houses.
+                  </li>
+                  <li>The variety of symbols in art has grown a lot over time. For example, in the 19th century, while the most common symbols still appeared frequently, they made up a smaller percentage of the total, showing that artists were exploring a wider range of subjects.
+                  </li>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div> -->
+              </div>
               <!-- End Faq item-->
-              <!-- 
+              
               <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
+                <h3>What did we learn about genres?</h3>
                 <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                  <li>Although the Wikidata dataset isn’t complete, it reflects the trends we’d expect based on studies of iconography. It shows how different art movements favored certain genres, matching what we know about art history.</li>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div> -->
+              </div>
               <!-- End Faq item-->
 
-
-
-            <!-- </div>
+              <h4>For Our Audience</h4>
+              <p>For art lovers, this project shows how digital tools can make exploring art history more exciting. By looking at data, we can see how the themes in art have changed over the centuries, giving us a clearer picture of its evolution.</p>
+              <br>
+              <p>For experts and researchers, our findings demonstrate how Wikidata can be a valuable resource for studying art trends, even though it has its limitations. This project highlights the potential of digital methods in art history, helping to create detailed data sources. These sources can be used for machine learning tasks like classifying artworks, and for finding patterns between cultural trends and artistic themes.</p>
+              <br>
+              <h4>Furhter developments</h4>
+              <p>Future developments in this area could create better data sources, making it easier to use technology for understanding art. These advancements could help in machine learning and uncovering patterns between cultural phenomena, symbols, and subjects, enriching both the study and appreciation of art across different periods and movements.</p>
+            </div>
 
           </div>
 
@@ -1965,7 +1978,7 @@
 
       </div>
 
-    </section> -->
+    </section>
     <!-- /Faq 2 Section -->
 
     <!-- Team Section -->
