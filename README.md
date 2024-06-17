@@ -7,10 +7,10 @@ The output of the project consists of:
 - a [Jupyter Notebook](https://github.com/falaimo99/infoviz/blob/main/data/data_cleaning.ipynb) through which we explored, cleaned and prepared the data in order to visualize them.
 - a [website](https://falaimo99.github.io/infoviz/website/index.html), titled "Changing Focus", that contains the storytelling part and visualizations that we realized starting from our dataset.
 
-Group members:
-- Francesco Alaimo, as data extractor and analyst.
-- Gaia Ortona, that took care of the visualizations.
-- Chiara Parravicini, as Storytelling curator and web designer.
+Group members and tasks:
+- Francesco Alaimo, data extraction and analysis.
+- Gaia Ortona, data visualization.
+- Chiara Parravicini, storytelling and analysis.
 
 The Project is released under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) license.
 
