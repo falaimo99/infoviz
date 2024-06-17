@@ -117,13 +117,13 @@
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
             <h1>Changing focus</h1>
             <p>An iconographic investigation through relevant artistic movements</p>
-            <div class="d-flex">
+            <!-- <div class="d-flex">
               <a href="#about" class="btn-get-started">Start learning</a>
-              <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
-            </div>
+              <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            </div> -->
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/wheel.png" class="img-fluid animated" alt="" style="filter: opacity(0.6);>
+            <img src="assets/img/wheel.png" class="img-fluid animated" alt="" style="filter: opacity(0.6);">
           </div>
         </div>
       </div>
@@ -187,7 +187,8 @@
 
       </div>
 
-    </section><!--/Clients Section -->
+    </section> -->
+    <!--/Clients Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -206,16 +207,16 @@
               Welcome to our project, where we explore the fascinating world of art through the lens of digital humanities. Our website delves into the rich cultural heritage of artworks, examining how symbols and genres evolve over time. By leveraging the power of Wikidata and Semantic Web technologies, we uncover hidden patterns and insights that reveal the dynamic nature of artistic expression.
             </p>
             <a href="\data\data_cleaning.ipynb" class="read-more" id="download-link" download>
-              <span id="download-span">Download documentation</span>
+              <span id="download-span" onclick="document.getElementById('download-link').click()">Download documentation</span>
               <i class="bi bi-arrow-right"></i>
             </a>
             
-            <script>
+            <!-- <script>
               document.getElementById('download-span').addEventListener('click', function(event) {
                 event.preventDefault(); 
                 document.getElementById('download-link').click(); 
               });
-            </script>
+            </script> -->
           </div>
 
         </div>
