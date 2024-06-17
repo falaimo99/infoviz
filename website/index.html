@@ -32,11 +32,23 @@
   <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
   <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
   <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
 
   <style>
-    #viz1, #viz2, #chartdiv {
+    #viz1, #viz2 {
         width: 80%;
-        margin: 0 auto;
+        margin: 5% auto;
+    }
+
+    #chartdiv, #viz4, #viz5 {
+            width: 80%;
+            height: 600px;
+            margin: 5% auto; 
+        }
+
+    #sym1200, #sym1300, #sym1400, #sym1500, #sym1600, #sym1700, #sym1800, #sym1900, #sym2000 {
+        width: 100%;
+        height: 600px;
     }
 </style>
 
@@ -64,8 +76,8 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">The project</a></li>
-          <li><a href="#services">Symbols</a></li>
-          <li><a href="#portfolio">Genres</a></li>
+          <li><a href="#portfolio">Symbols</a></li>
+          <li><a href="#services">Genres</a></li>
           <li><a href="#team">Team</a></li>
           <!-- <li><a href="#pricing">Pricing</a></li> -->
           <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -111,7 +123,7 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+            <img src="assets/img/wheel.png" class="img-fluid animated" alt="" style="filter: opacity(0.6);>
           </div>
         </div>
       </div>
@@ -175,7 +187,7 @@
 
       </div>
 
-    </section>/Clients Section -->
+    </section><!--/Clients Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -189,21 +201,21 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 content" data-aos="fade-up" data-aos-delay="100">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              Welcome to our project, where we explore the fascinating world of art through the lens of digital humanities. Our website delves into the rich cultural heritage of artworks, examining how symbols and genres evolve over time. By leveraging the power of Wikidata and Semantic Web technologies, we uncover hidden patterns and insights that reveal the dynamic nature of artistic expression.
             </p>
-            <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-            <a href="#" class="read-more"><span>Download documentation (?)</span><i class="bi bi-arrow-right"></i></a>
+            <a href="\data\data_cleaning.ipynb" class="read-more" id="download-link" download>
+              <span id="download-span">Download documentation</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+            
+            <script>
+              document.getElementById('download-span').addEventListener('click', function(event) {
+                event.preventDefault(); 
+                document.getElementById('download-link').click(); 
+              });
+            </script>
           </div>
 
         </div>
@@ -215,38 +227,35 @@
     <!-- Why Us Section -->
     <section id="why-us" class="section why-us" data-builder="section">
 
-      <div class="container-fluid">
+      <div class="container">
 
-        <div class="row gy-4">
-
-          <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
+          <div class="col-lg-12 d-flex flex-column justify-content-center order-2 order-lg-1">
 
             <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-              <h3><span>Here are our</span> <strong>research questions</strong></h3>
-              <p>
+              <h3><center><span>Our</span> <strong>research questions</strong></center></h3>
+              <p><center>
                 Click to delve into each one
-              </p>
+              </center></p>
             </div>
 
             <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
 
-              <div class="faq-item faq-active">
+              <div class="faq-item">
 
-                <h3><span>01</span> How do the subjects of artworks change through time?</h3>
+                <h3><center><span>01</span> How do the subjects of artworks change through time?</center></h3>
                 <div class="faq-content">
-                  <p>What are the most common symbols in Wikidata 2D artworks attributed to an artist?</p>
-                  <br>
-                  <p>How often do they appear through the centuries?</p>
+                  <p><center>What are the most common symbols in Wikidata 2D artworks attributed to an artist?</center></p>
+                  <p><center>How often do they appear through the centuries?</center></p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3><span>02</span> How does the distribution of the artworks' genre change in different artistic movements? </h3>
+                <h3><center><span>02</span> How does the distribution of the artworks' genre change in different artistic movements?</center></h3>
                 <div class="faq-content">
-                  <p>What are the artistic movements with the highest number of notable works present in wikidata and how are they distributed in time?</p>
-                  <br>
-                  <p>Taking couples of opposed genres (e.g. landscape/portrait), how does the frequency of each genre of the couple, i.e. their ratio, vary throughout the movements? </p>
+                  <p><center>What are the artistic movements with the highest number of notable works present in wikidata and how are they distributed in time?</center></p>
+                  <p><center>What are the most frequent genres and how their frequency changes in different movements?</center></p>
+                  <p><center>Taking couples of opposed genres (e.g. landscape/portrait), how does the frequency of each genre of the couple, i.e. their ratio, vary throughout the movements?</center></p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -255,241 +264,1072 @@
 
           </div>
 
-          <div class="col-lg-5 order-1 order-lg-2 why-us-img">
+          <!-- <div class="col-lg-5 order-1 order-lg-2 why-us-img">
             <img src="assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
-          </div>
-        </div>
+          </div> -->
+        
 
       </div>
 
     </section><!-- /Why Us Section -->
 
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Symbols</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>In this section, we are about to uncover the most common symbols in 2D artworks attributed to artists. By analyzing the Wikidata dataset, we identify the recurring motifs that have captivated artists across the centuries. From the Medieval religious symbols to the modern abstract expressions of the 20th century, we explore how symbols have been used to convey meaning and tell stories. Our analysis reveals the frequency of these symbols over time, providing a unique perspective on the evolution of artistic expression.</p>
       </div><!-- End Section Title -->
 
-      <!-- Viz1 -->
-      <section id="skills" class="skills section">
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-  
-          <div class="row">
-  
-            <div class="col-lg-6 d-flex align-items-center">
-              <img src="assets/img/skills.png" class="img-fluid" alt="">
-            </div>
-  
-            <div class="col-lg-6 pt-4 pt-lg-0 content">
-  
-              <h3>Voluptatem dignissimos provident quasi corporis voluptas</h3>
-              <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-  
-              <div id='viz1'><!-- Plotly chart will be drawn inside this DIV --></div>
-              <script>
-              var data = [
-              {
-                x: ['woman', 'man', 'nudity', 'sky', 'tree', 'sitting', 'Virgin Mary', 'waist-length hair', 'Jesus', 'cloud'],
-                y: [1159, 637, 349, 345, 296, 285, 254, 250, 191, 186],
-                type: 'bar',
-                marker: {
-                  color: 'rgb(176, 191, 26)' 
-                }
-              }];
-            
-                var layout = {
-                title: 'Symbols with the most occurences', 
-                xaxis: {
-                title: 'Symbols'
-              },
-              yaxis: {
-                title: 'Occurrences'
-              }
-              }
-                          
-              Plotly.newPlot('viz1', data, layout);
-              </script>
-  
-            </div>
-          </div>
-  
-        </div>
-  
-      </section><!-- /Viz1 -->
-      
-
-      <!-- Viz2 -->
-      <div id='viz2'><!-- Plotly chart will be drawn inside this DIV --></div>
-      <script>
-      var woman = {
-        x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
-        y: [6, 8, 98, 129, 115, 62, 477, 228, 6, 30],
-        mode: 'lines+markers',
-        connectgaps: true,
-        name: 'woman',
-        line: {
-          color: '#B0BF1A', // Colore della linea
-          width: 2 // Larghezza della linea
-        },
-        marker: {
-          color: '#B0BF1A',
-          size:8
-        }
-      };
-      
-      var man = {
-        x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
-        y: [null, 4, 61, 86, 117, 42, 248, 73, 3, 3],
-        mode: 'lines+markers',
-        connectgaps: true,
-        name: 'man',
-        line: {
-          color: '#0048BA', // Colore della linea
-          width: 2 // Larghezza della linea
-        },
-        marker: {
-          color: '#0048BA',
-          size:8
-        }
-      };
-      var nudity = {
-        x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
-        y: [null, null, 2, 45, 38, 19, 151, 77, 4, 13],
-        mode: 'lines+markers',
-        connectgaps: true,
-        name: 'nudity',
-        line: {
-          color: '#3B7A57', // Colore della linea
-          width: 2 // Larghezza della linea
-        },
-        marker: {
-          color: '#3B7A57',
-          size:8
-        }
-      };
-      var sky = {
-        x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
-        y: [null, null, 10, 32, 56, 17, 184, 36, 4, 6],
-        mode: 'lines+markers',
-        connectgaps: true,
-        name: 'sky',
-        line: {
-          color: '#AF002A', // Colore della linea
-          width: 2 // Larghezza della linea
-        },
-        marker: {
-          color: '#AF002A',
-          size:8
-        }
-      };
-      var tree = {
-        x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
-        y: [null, null, 8, 27, 51, 18, 141, 37, null, 14],
-        mode: 'lines+markers',
-        connectgaps: true,
-        name: 'tree',
-        line: {
-          color: '#FFBF00', // Colore della linea
-          width: 2 // Larghezza della linea
-        },
-        marker: {
-          color: '#FFBF00',
-          size:8
-        }
-      };
-    
-      
-      var data = [woman, man, nudity, sky, tree];
-      
-      var layout = {
-        title: {
-          text: 'Evolution of symbols through time',
-          font: {
-              family: 'Arial, sans-serif',
-              size: 18,
-              color: 'black'
-    },
-        },
-        showlegend: true,
-        xaxis: {
-          title: {
-            text: 'Century',
-            font: {
-              family: 'Arial, sans-serif',
-              size: 18,
-              color: 'black'
-            }
+      <div class="container"></div>
+        <h4><center>Let's discover what are the top 10 recurring symbols in our entire dataset:</center></h4>
+        <!-- viz1 -->
+        <div id='viz1'><!-- Plotly chart will be drawn inside this DIV --></div>
+        <script>
+        var data = [
+        {
+          x: ['woman', 'man', 'nudity', 'sky', 'tree', 'sitting', 'Virgin Mary', 'waist-length hair', 'Jesus', 'cloud'],
+          y: [1159, 637, 349, 345, 296, 285, 254, 250, 191, 186],
+          type: 'bar',
+          marker: {
+            color: 'rgb(176, 191, 26)' 
           }
+        }];
+      
+          var layout = {
+          title: 'Symbols with the most occurences', 
+          xaxis: {
+          title: 'Symbols'
         },
         yaxis: {
+          title: 'Occurrences'
+        }
+        }
+                    
+        Plotly.newPlot('viz1', data, layout);
+        </script>
+        <!-- End viz1 -->
+
+        <h4><center>Now let's see how what's the overall trend of the 5 most recurrent one:</center></h4>
+        <!-- Viz2 -->
+        <div id='viz2'><!-- Plotly chart will be drawn inside this DIV --></div>
+        <script>
+        var woman = {
+          x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+          y: [6, 8, 98, 129, 115, 62, 477, 228, 6, 30],
+          mode: 'lines+markers',
+          connectgaps: true,
+          name: 'woman',
+          line: {
+            color: '#B0BF1A', // Colore della linea
+            width: 2 // Larghezza della linea
+          },
+          marker: {
+            color: '#B0BF1A',
+            size:8
+          }
+        };
+        
+        var man = {
+          x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+          y: [null, 4, 61, 86, 117, 42, 248, 73, 3, 3],
+          mode: 'lines+markers',
+          connectgaps: true,
+          name: 'man',
+          line: {
+            color: '#0048BA', // Colore della linea
+            width: 2 // Larghezza della linea
+          },
+          marker: {
+            color: '#0048BA',
+            size:8
+          }
+        };
+        var nudity = {
+          x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+          y: [null, null, 2, 45, 38, 19, 151, 77, 4, 13],
+          mode: 'lines+markers',
+          connectgaps: true,
+          name: 'nudity',
+          line: {
+            color: '#3B7A57', // Colore della linea
+            width: 2 // Larghezza della linea
+          },
+          marker: {
+            color: '#3B7A57',
+            size:8
+          }
+        };
+        var sky = {
+          x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+          y: [null, null, 10, 32, 56, 17, 184, 36, 4, 6],
+          mode: 'lines+markers',
+          connectgaps: true,
+          name: 'sky',
+          line: {
+            color: '#AF002A', // Colore della linea
+            width: 2 // Larghezza della linea
+          },
+          marker: {
+            color: '#AF002A',
+            size:8
+          }
+        };
+        var tree = {
+          x: [1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+          y: [null, null, 8, 27, 51, 18, 141, 37, null, 14],
+          mode: 'lines+markers',
+          connectgaps: true,
+          name: 'tree',
+          line: {
+            color: '#FFBF00', // Colore della linea
+            width: 2 // Larghezza della linea
+          },
+          marker: {
+            color: '#FFBF00',
+            size:8
+          }
+        };
+      
+        
+        var data = [woman, man, nudity, sky, tree];
+        
+        var layout = {
           title: {
-            text: 'Occurences of symbols',
+            text: 'Evolution of symbols through time',
             font: {
-              family: 'Arial, sans-serif',
-              size: 18,
-              color: 'black'
+                family: 'Arial, sans-serif',
+                size: 18,
+                color: 'black'
+              },
+          },
+          showlegend: true,
+          xaxis: {
+            title: {
+              text: 'Century',
+              font: {
+                family: 'Arial, sans-serif',
+                size: 18,
+                color: 'black'
+              }
+            }
+          },
+          yaxis: {
+            title: {
+              text: 'Occurences of symbols',
+              font: {
+                family: 'Arial, sans-serif',
+                size: 18,
+                color: 'black'
+              }
             }
           }
-        }
-      };
+        };
+        
+        Plotly.newPlot('viz2', data, layout);
+        </script>
+        <!-- End Viz2 -->
+
       
-      Plotly.newPlot('viz2', data, layout);
-      </script>
-      <!-- End Viz2 -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="service-details.html" class="stretched-link">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-              <h4><a href="service-details.html" class="stretched-link">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-              <h4><a href="service-details.html" class="stretched-link">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="service-details.html" class="stretched-link">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div><!-- End Service Item -->
-
+        <h4><center>But what about the most recurring symbols for each century? Click the buttons to learn!</center></h4>
+        <br>
+        <div class="isotope-layout" data-default-filter=".filter-1200" data-layout="masonry" data-sort="original-order">
+  
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <!-- <li data-filter="none" class="filter-active">All</li> -->
+            <li data-filter=".filter-1200" class="filter-active">1200</li>
+            <li data-filter=".filter-1300">1300</li>
+            <li data-filter=".filter-1400">1400</li>
+            <li data-filter=".filter-1500">1500</li>
+            <li data-filter=".filter-1600">1600</li>
+            <li data-filter=".filter-1700">1700</li>
+            <li data-filter=".filter-1800">1800</li>
+            <li data-filter=".filter-1900">1900</li>
+            <li data-filter=".filter-2000">2000</li>
+          </ul><!-- End Portfolio Filters -->
+  
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+  
+            <div class="portfolio-item isotope-item filter-1200">
+              <script>
+                am5.ready(function() {
+  
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("sym1200");
+  
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                        am5themes_Animated.new(root)
+                    ]);
+  
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(
+                        am5percent.PieChart.new(root, {
+                            endAngle: 270,
+                            paddingTop: 40
+                        })
+                    );
+  
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(
+                        am5percent.PieSeries.new(root, {
+                            valueField: "value",
+                            categoryField: "category",
+                            endAngle: 270,
+                            
+                        })
+                    );
+  
+                    series.states.create("hidden", {
+                        endAngle: -90
+                    });
+  
+                    series.ticks.template.setAll({
+                        stroke: am5.color(0x000000), // Change the color of the line here
+                        strokeWidth: 1, // Change the width of the line here
+                        strokeOpacity: 1 // Change the opacity of the line here
+                    });
+  
+                    
+  
+                    // Add a title
+                    var title = chart.children.unshift(
+                        am5.Label.new(root, {
+                            text: "Most frequent symbols in the 13th century", // Change the title text here
+                            fontSize: 20,
+                            textAlign: "center",
+                            x: am5.percent(50),
+                            centerX: am5.percent(50),
+                            y: 20
+                        })
+                    );
+                    var container = root.container.children.push(
+                        am5.Container.new(root, {
+                            layout: root.verticalLayout,
+                            paddingTop: 20, // Padding at the top of the container
+                            paddingBottom: 20 // Padding at the bottom of the container
+                        })
+                    );
+  
+  
+  
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+                    series.data.setAll([{
+                        category: "Other",
+                        value: 46.15
+                    }, {
+                        category: "Mother",
+                        value: 5.77
+                    }, {
+                        category: "Woman",
+                        value: 11.54
+                    }, {
+                        category: "Boy",
+                        value: 11.54
+                    }, {
+                        category: "Virgin Mary",
+                        value: 11.54
+                    }, {
+                        category: "Christ Child",
+                        value: 13.46
+                    }]);
+  
+                    series.appear(1000, 100);
+  
+                }); // end am5.ready()
+              </script>
+              <div id="sym1200"></div>
+            </div><!-- End Portfolio Item -->
+  
+            <div class="portfolio-item isotope-item filter-1300">
+              <script>
+                am5.ready(function() {
+  
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("sym1300");
+  
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                        am5themes_Animated.new(root)
+                    ]);
+  
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(
+                        am5percent.PieChart.new(root, {
+                            endAngle: 270,
+                            paddingTop: 40
+                        })
+                    );
+  
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(
+                        am5percent.PieSeries.new(root, {
+                            valueField: "value",
+                            categoryField: "category",
+                            endAngle: 270,
+                            
+                        })
+                    );
+  
+                    series.states.create("hidden", {
+                        endAngle: -90
+                    });
+  
+                    series.ticks.template.setAll({
+                        stroke: am5.color(0x000000), // Change the color of the line here
+                        strokeWidth: 1, // Change the width of the line here
+                        strokeOpacity: 1 // Change the opacity of the line here
+                    });
+  
+                    
+  
+                    // Add a title
+                    var title = chart.children.unshift(
+                        am5.Label.new(root, {
+                            text: "Most frequent symbols in the 14th century", // Change the title text here
+                            fontSize: 20,
+                            textAlign: "center",
+                            x: am5.percent(50),
+                            centerX: am5.percent(50),
+                            y: 20
+                        })
+                    );
+                    var container = root.container.children.push(
+                        am5.Container.new(root, {
+                            layout: root.verticalLayout,
+                            paddingTop: 20, // Padding at the top of the container
+                            paddingBottom: 20 // Padding at the bottom of the container
+                        })
+                    );
+  
+  
+  
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+                    series.data.setAll([{
+                        category: "Other",
+                        value: 53.21
+                    }, {
+                        category: "Boy",
+                        value: 5.50
+                    }, {
+                        category: "Woman",
+                        value: 7.34
+                    }, {
+                        category: "Jesus",
+                        value: 8.26
+                    }, {
+                        category: "Christ child",
+                        value: 11.01
+                    }, {
+                        category: "Virgin Mary",
+                        value: 14.68
+                    }]);
+  
+                    series.appear(1000, 100);
+  
+                }); // end am5.ready()
+            </script>>
+            <div id="sym1300"></div>
+            </div><!-- End Portfolio Item -->
+  
+            <div class="portfolio-item isotope-item filter-1400">
+              <script>
+                am5.ready(function() {
+  
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("sym1400");
+  
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                        am5themes_Animated.new(root)
+                    ]);
+  
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(
+                        am5percent.PieChart.new(root, {
+                            endAngle: 270,
+                            paddingTop: 40
+                        })
+                    );
+  
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(
+                        am5percent.PieSeries.new(root, {
+                            valueField: "value",
+                            categoryField: "category",
+                            endAngle: 270,
+                            
+                        })
+                    );
+  
+                    series.states.create("hidden", {
+                        endAngle: -90
+                    });
+  
+                    series.ticks.template.setAll({
+                        stroke: am5.color(0x000000), // Change the color of the line here
+                        strokeWidth: 1, // Change the width of the line here
+                        strokeOpacity: 1 // Change the opacity of the line here
+                    });
+  
+                    
+  
+                    // Add a title
+                    var title = chart.children.unshift(
+                        am5.Label.new(root, {
+                            text: "Most frequent symbols in the 15th century", // Change the title text here
+                            fontSize: 20,
+                            textAlign: "center",
+                            x: am5.percent(50),
+                            centerX: am5.percent(50),
+                            y: 20
+                        })
+                    );
+                    var container = root.container.children.push(
+                        am5.Container.new(root, {
+                            layout: root.verticalLayout,
+                            paddingTop: 20, // Padding at the top of the container
+                            paddingBottom: 20 // Padding at the bottom of the container
+                        })
+                    );
+  
+  
+  
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+                    series.data.setAll([{
+                        category: "Other",
+                        value: 76.14
+                    }, {
+                        category: "Jesus",
+                        value: 2.99
+                    }, {
+                        category: "Man",
+                        value: 3.56
+                    }, {
+                        category: "Christ child",
+                        value: 4.58
+                    }, {
+                        category: "Woman",
+                        value: 6.24
+                    }, {
+                        category: "Virgin Mary",
+                        value: 6.49
+                    }]);
+  
+                    series.appear(1000, 100);
+  
+                }); // end am5.ready()
+            </script>
+            <div id="sym1400"></div>
+            </div><!-- End Portfolio Item -->
+  
+            <div class="portfolio-item isotope-item filter-1500">
+              <script>
+                am5.ready(function() {
+  
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("sym1500");
+  
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                        am5themes_Animated.new(root)
+                    ]);
+  
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(
+                        am5percent.PieChart.new(root, {
+                            endAngle: 270,
+                            paddingTop: 40
+                        })
+                    );
+  
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(
+                        am5percent.PieSeries.new(root, {
+                            valueField: "value",
+                            categoryField: "category",
+                            endAngle: 270,
+                            
+                        })
+                    );
+  
+                    series.states.create("hidden", {
+                        endAngle: -90
+                    });
+  
+                    series.ticks.template.setAll({
+                        stroke: am5.color(0x000000), // Change the color of the line here
+                        strokeWidth: 1, // Change the width of the line here
+                        strokeOpacity: 1 // Change the opacity of the line here
+                    });
+  
+                    
+  
+                    // Add a title
+                    var title = chart.children.unshift(
+                        am5.Label.new(root, {
+                            text: "Most frequent symbols in the 16th century", // Change the title text here
+                            fontSize: 20,
+                            textAlign: "center",
+                            x: am5.percent(50),
+                            centerX: am5.percent(50),
+                            y: 20
+                        })
+                    );
+                    var container = root.container.children.push(
+                        am5.Container.new(root, {
+                            layout: root.verticalLayout,
+                            paddingTop: 20, // Padding at the top of the container
+                            paddingBottom: 20 // Padding at the bottom of the container
+                        })
+                    );
+  
+  
+  
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+                    series.data.setAll([{
+                        category: "Other",
+                        value: 85.12
+                    }, {
+                        category: "Jesus",
+                        value: 1.78
+                    }, {
+                        category: "Christ child",
+                        value: 2.28
+                    }, {
+                        category: "Man",
+                        value: 3.06
+                    }, {
+                        category: "Virgin Mary",
+                        value: 3.17
+                    }, {
+                        category: "Woman",
+                        value: 4.59
+                    }]);
+  
+                    series.appear(1000, 100);
+  
+                }); // end am5.ready()
+            </script>
+            <div id="sym1500"></div>
+            </div><!-- End Portfolio Item -->
+  
+            <div class="portfolio-item isotope-item filter-1600">
+              <script>
+                am5.ready(function() {
+  
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("sym1600");
+  
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                        am5themes_Animated.new(root)
+                    ]);
+  
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(
+                        am5percent.PieChart.new(root, {
+                            endAngle: 270,
+                            paddingTop: 40
+                        })
+                    );
+  
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(
+                        am5percent.PieSeries.new(root, {
+                            valueField: "value",
+                            categoryField: "category",
+                            endAngle: 270,
+                            
+                        })
+                    );
+  
+                    series.states.create("hidden", {
+                        endAngle: -90
+                    });
+  
+                    series.ticks.template.setAll({
+                        stroke: am5.color(0x000000), // Change the color of the line here
+                        strokeWidth: 1, // Change the width of the line here
+                        strokeOpacity: 1 // Change the opacity of the line here
+                    });
+  
+                    
+  
+                    // Add a title
+                    var title = chart.children.unshift(
+                        am5.Label.new(root, {
+                            text: "Most frequent symbols in the 17th century", // Change the title text here
+                            fontSize: 20,
+                            textAlign: "center",
+                            x: am5.percent(50),
+                            centerX: am5.percent(50),
+                            y: 20
+                        })
+                    );
+                    var container = root.container.children.push(
+                        am5.Container.new(root, {
+                            layout: root.verticalLayout,
+                            paddingTop: 20, // Padding at the top of the container
+                            paddingBottom: 20 // Padding at the bottom of the container
+                        })
+                    );
+  
+  
+  
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+                    series.data.setAll([{
+                        category: "Other",
+                        value: 89.4
+                    }, {
+                        category: "Cloud",
+                        value: 1.22
+                    }, {
+                        category: "Tree",
+                        value: 1.41
+                    }, {
+                        category: "Sky",
+                        value: 1.55
+                    }, {
+                        category: "Woman",
+                        value: 3.18
+                    }, {
+                        category: "Man",
+                        value: 3.24
+                    }]);
+  
+                    series.appear(1000, 100);
+  
+                }); // end am5.ready()
+            </script>
+            <div id="sym1600"></div>       
+            </div><!-- End Portfolio Item -->
+  
+            <div class="portfolio-item isotope-item filter-1700">
+              <script>
+                am5.ready(function() {
+  
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("sym1700");
+  
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                        am5themes_Animated.new(root)
+                    ]);
+  
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(
+                        am5percent.PieChart.new(root, {
+                            endAngle: 270,
+                            paddingTop: 40
+                        })
+                    );
+  
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(
+                        am5percent.PieSeries.new(root, {
+                            valueField: "value",
+                            categoryField: "category",
+                            endAngle: 270,
+                            
+                        })
+                    );
+  
+                    series.states.create("hidden", {
+                        endAngle: -90
+                    });
+  
+                    series.ticks.template.setAll({
+                        stroke: am5.color(0x000000), // Change the color of the line here
+                        strokeWidth: 1, // Change the width of the line here
+                        strokeOpacity: 1 // Change the opacity of the line here
+                    });
+  
+                    
+  
+                    // Add a title
+                    var title = chart.children.unshift(
+                        am5.Label.new(root, {
+                            text: "Most frequent symbols in the 18th century", // Change the title text here
+                            fontSize: 20,
+                            textAlign: "center",
+                            x: am5.percent(50),
+                            centerX: am5.percent(50),
+                            y: 20
+                        })
+                    );
+                    var container = root.container.children.push(
+                        am5.Container.new(root, {
+                            layout: root.verticalLayout,
+                            paddingTop: 20, // Padding at the top of the container
+                            paddingBottom: 20 // Padding at the bottom of the container
+                        })
+                    );
+  
+  
+  
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+                    series.data.setAll([{
+                        category: "Other",
+                        value: 89.52
+                    }, {
+                        category: "Drapery",
+                        value: 1.15
+                    }, {
+                        category: "Nudity",
+                        value: 1.21
+                    }, {
+                        category: "Sitting",
+                        value: 1.47
+                    }, {
+                        category: "Man",
+                        value: 2.69
+                    }, {
+                        category: "Woman",
+                        value: 3.96
+                    }]);
+  
+                    series.appear(1000, 100);
+  
+                }); // end am5.ready()
+            </script>
+            <div id="sym1700"></div>        
+            </div><!-- End Portfolio Item -->
+  
+            <div class="portfolio-item isotope-item filter-1800">
+              <script>
+                am5.ready(function() {
+  
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("sym1800");
+  
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                        am5themes_Animated.new(root)
+                    ]);
+  
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(
+                        am5percent.PieChart.new(root, {
+                            endAngle: 270,
+                            paddingTop: 40
+                        })
+                    );
+  
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(
+                        am5percent.PieSeries.new(root, {
+                            valueField: "value",
+                            categoryField: "category",
+                            endAngle: 270,
+                            
+                        })
+                    );
+  
+                    series.states.create("hidden", {
+                        endAngle: -90
+                    });
+  
+                    series.ticks.template.setAll({
+                        stroke: am5.color(0x000000), // Change the color of the line here
+                        strokeWidth: 1, // Change the width of the line here
+                        strokeOpacity: 1 // Change the opacity of the line here
+                    });
+  
+                    
+  
+                    // Add a title
+                    var title = chart.children.unshift(
+                        am5.Label.new(root, {
+                            text: "Most frequent symbols in the 19th century", // Change the title text here
+                            fontSize: 20,
+                            textAlign: "center",
+                            x: am5.percent(50),
+                            centerX: am5.percent(50),
+                            y: 20
+                        })
+                    );
+                    var container = root.container.children.push(
+                        am5.Container.new(root, {
+                            layout: root.verticalLayout,
+                            paddingTop: 20, // Padding at the top of the container
+                            paddingBottom: 20 // Padding at the bottom of the container
+                        })
+                    );
+  
+  
+  
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+                    series.data.setAll([{
+                        category: "Other",
+                        value: 88.97
+                    }, {
+                        category: "Nudity",
+                        value: 1.34
+                    }, {
+                        category: "Sitting",
+                        value: 1.59
+                    }, {
+                        category: "Sky",
+                        value: 1.64
+                    }, {
+                        category: "Man",
+                        value: 2.21
+                    }, {
+                        category: "Woman",
+                        value: 4.25
+                    }]);
+  
+                    series.appear(1000, 100);
+  
+                }); // end am5.ready()
+            </script>
+            <div id="sym1800"></div>        
+            </div><!-- End Portfolio Item -->
+  
+            <div class="portfolio-item isotope-item filter-1900">
+              <script>
+                am5.ready(function() {
+  
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("sym1900");
+  
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                        am5themes_Animated.new(root)
+                    ]);
+  
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(
+                        am5percent.PieChart.new(root, {
+                            endAngle: 270,
+                            paddingTop: 40
+                        })
+                    );
+  
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(
+                        am5percent.PieSeries.new(root, {
+                            valueField: "value",
+                            categoryField: "category",
+                            endAngle: 270,
+                            
+                        })
+                    );
+  
+                    series.states.create("hidden", {
+                        endAngle: -90
+                    });
+  
+                    series.ticks.template.setAll({
+                        stroke: am5.color(0x000000), // Change the color of the line here
+                        strokeWidth: 1, // Change the width of the line here
+                        strokeOpacity: 1 // Change the opacity of the line here
+                    });
+  
+                    
+  
+                    // Add a title
+                    var title = chart.children.unshift(
+                        am5.Label.new(root, {
+                            text: "Most frequent symbols in the 20th century", // Change the title text here
+                            fontSize: 20,
+                            textAlign: "center",
+                            x: am5.percent(50),
+                            centerX: am5.percent(50),
+                            y: 20
+                        })
+                    );
+                    var container = root.container.children.push(
+                        am5.Container.new(root, {
+                            layout: root.verticalLayout,
+                            paddingTop: 20, // Padding at the top of the container
+                            paddingBottom: 20 // Padding at the bottom of the container
+                        })
+                    );
+  
+  
+  
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+                    series.data.setAll([{
+                        category: "Other",
+                        value: 84.93
+                    }, {
+                        category: "House",
+                        value: 1.26
+                    }, {
+                        category: "Broad-leved tree",
+                        value: 1.29
+                    }, {
+                        category: "Man",
+                        value: 2.42
+                    }, {
+                        category: "Nudity",
+                        value: 2.55
+                    }, {
+                        category: "Woman",
+                        value: 7.55
+                    }]);
+  
+                    series.appear(1000, 100);
+  
+                }); // end am5.ready()
+            </script>
+            <div id="sym1900"></div>        
+            </div><!-- End Portfolio Item -->
+  
+            <div class="portfolio-item isotope-item filter-2000">
+              <script>
+                am5.ready(function() {
+  
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("sym2000");
+  
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                        am5themes_Animated.new(root)
+                    ]);
+  
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(
+                        am5percent.PieChart.new(root, {
+                            endAngle: 270,
+                            paddingTop: 40
+                        })
+                    );
+  
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(
+                        am5percent.PieSeries.new(root, {
+                            valueField: "value",
+                            categoryField: "category",
+                            endAngle: 270,
+                            
+                        })
+                    );
+  
+                    series.states.create("hidden", {
+                        endAngle: -90
+                    });
+  
+                    series.ticks.template.setAll({
+                        stroke: am5.color(0x000000), // Change the color of the line here
+                        strokeWidth: 1, // Change the width of the line here
+                        strokeOpacity: 1 // Change the opacity of the line here
+                    });
+  
+                    
+  
+                    // Add a title
+                    var title = chart.children.unshift(
+                        am5.Label.new(root, {
+                            text: "Most frequent symbols in the 21st century", // Change the title text here
+                            fontSize: 20,
+                            textAlign: "center",
+                            x: am5.percent(50),
+                            centerX: am5.percent(50),
+                            y: 20
+                        })
+                    );
+                    var container = root.container.children.push(
+                        am5.Container.new(root, {
+                            layout: root.verticalLayout,
+                            paddingTop: 20, // Padding at the top of the container
+                            paddingBottom: 20 // Padding at the bottom of the container
+                        })
+                    );
+  
+  
+  
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+                    series.data.setAll([{
+                        category: "Other",
+                        value: 85.72
+                    }, {
+                        category: "Energy",
+                        value: 2.72
+                    }, {
+                        category: "Emotion",
+                        value: 2.72
+                    }, {
+                        category: "Titanism",
+                        value: 2.72
+                    }, {
+                        category: "Romanticism",
+                        value: 2.72
+                    }, {
+                        category: "Water",
+                        value: 3.40
+                    }]);
+  
+                    series.appear(1000, 100);
+  
+                }); // end am5.ready()
+            </script>        
+            <div id="sym2000"></div>        
+            </div><!-- End Portfolio Item -->
+  
+          </div><!-- End Portfolio Container -->
+  
         </div>
-
+  
       </div>
 
-    </section><!-- /Services Section -->
+    </section><!-- /Portfolio Section -->
+
+
+
 
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section">
 
-      <img src="assets/img/cta-bg.jpg" alt="">
+      <img src="assets/img/sfondo2.jpg" alt="">
 
       <!-- <div class="container">
 
@@ -507,17 +1347,18 @@
 
     </section><!-- /Call To Action Section -->
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
+    <!-- Services Section -->
+    <section id="services" class="services section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Genres</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>In this part of our project, we shift our focus to the genres that have shaped the artistic landscape. We examine the distribution of artworks across different artistic movements. By analyzing the frequency of genres within a movement, we uncover the dominant styles that have defined the artistic identity of each period. We also explore the ratio of opposing genres, such as landscape and portrait, to understand how these contrasts have influenced the development of art throughout history.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
 
+        <h4><center>Let's see how the movements with the highest number of works on Wikidata are distributed through time:</center></h4>
         <div id="chartdiv"></div>
 
         <script>
@@ -640,7 +1481,7 @@
                     grid:null,
                     gridopacity: null
                 });
-               
+              
     
                 var yAxis = chart.yAxes.push(
                     am5xy.CategoryAxis.new(root, {
@@ -695,322 +1536,397 @@
                 series.data.setAll(data);
             });
         </script>
-    
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Card</li>
-            <li data-filter=".filter-branding">Web</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Branding 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Branding 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Branding 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Team Section -->
-
-    <!-- Pricing Section -->
-    <!-- <section id="pricing" class="pricing section"> -->
-
-      <!-- Section Title -->
-      <!-- <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div> -->
-      <!-- End Section Title -->
-
-      <!-- <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-item">
-              <h3>Free Plan</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-          </div> -->
-          <!-- End Pricing Item -->
-
-          <!-- <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-item featured">
-              <h3>Business Plan</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-          </div> -->
-          <!-- End Pricing Item -->
-
-          <!-- <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-item">
-              <h3>Developer Plan</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-          </div> -->
-          <!-- End Pricing Item -->
-
-        <!-- </div>
-
-      </div>
-
-    </section> -->
-    <!-- /Pricing Section -->
-
-    <!-- Testimonials Section -->
-    <!-- <section id="testimonials" class="testimonials section"> -->
-
-      <!-- Section Title -->
-      <!-- <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div> -->
-      <!-- End Section Title -->
-
-      <!-- <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
+      
+        <h4><center>Now, selecting 4 of them, let's see how the frequency of the top recurring genres changes:</center></h4>
+        <!-- Viz4 -->
+        <script>
+          am5.ready(function() {
+          
+          // Create root element
+          // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+          var root = am5.Root.new("viz4");
+          
+          
+          // Set themes
+          // https://www.amcharts.com/docs/v5/concepts/themes/
+          root.setThemes([
+            am5themes_Animated.new(root)
+          ]);
+          
+          
+          // Create chart
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/
+          var chart = root.container.children.push(am5xy.XYChart.new(root, {
+            panX: false,
+            panY: false,
+            wheelX: "none",
+            wheelY: "none",
+            layout: root.horizontalLayout,
+            paddingLeft: 0
+          }));
+          
+          
+          // Add legend
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+          var legendData = [];
+          var legend = chart.children.push(
+            am5.Legend.new(root, {
+              nameField: "name",
+              fillField: "color",
+              strokeField: "color",
+              //centerY: am5.p50,
+              marginLeft: 20,
+              y: 20,
+              layout: root.verticalLayout,
+              clickTarget: "none"
+            })
+          );
+          
+          var data = [  {
+            region: "Realism",
+            state: "Religious___art",
+            sales: 2
+          }, {
+            region: "Realism",
+            state: "Mythological___painting",
+            sales: 2
+          }, {
+            region: "Realism",
+            state: "___Allegory",
+            sales: 2
+          }, {
+            region: "Realism",
+            state: "___Self-portrait",
+            sales: 3
+          }, {
+            region: "Realism",
+            state: "___Nude",
+            sales: 3
+          }, {
+            region: "Realism",
+            state: "Landscape___painting",
+            sales: 5
+          },{
+            region: "Realism",
+            state: "Figure__painting",
+            sales: 6
+          },{
+            region: "Realism",
+            state: "___Portrait",
+            sales: 18
+          },{
+            region: "Realism",
+            state: "Genre___art",
+            sales: 18
+          }, {
+            region: "Impressionism",
+            state: "_Allegory_",
+            sales: 2
+          },  {
+            region: "Impressionism",
+            state: "__Self-portrait",
+            sales: 3
+          }, {
+            region: "Impressionism",
+            state: "Religious__art",
+            sales: 3
+          }, {
+            region: "Impressionism",
+            state: "Mythological__painting",
+            sales: 4
+          }, {
+            region: "Impressionism",
+            state: "History__painting",
+            sales: 4
+          }, {
+            region: "Impressionism",
+            state: "Figure_painting",
+            sales: 7
+          }, {
+            region: "Impressionism",
+            state: "_Nude_",
+            sales: 10
+          }, {
+            region: "Impressionism",
+            state: "Landscape__painting",
+            sales: 37
+          }, {
+            region: "Impressionism",
+            state: "Genre__art",
+            sales: 37
+          }, {
+            region: "Impressionism",
+            state: "_Portrait_",
+            sales: 40
+          },{
+            region: "Dutch golden age painting",
+            state: "_Nude",
+            sales: 1
+          }, {
+            region: "Dutch golden age painting",
+            state: "History_painting",
+            sales: 1
+          }, {
+            region: "Dutch golden age painting",
+            state: "_Self-portrait",
+            sales: 3
+          }, {
+            region: "Dutch golden age painting",
+            state: "Religious_art",
+            sales: 4
+          }, {
+            region: "Dutch golden age painting",
+            state: "Mythological_painting",
+            sales: 4
+          }, {
+            region: "Dutch golden age painting",
+            state: "Landscape_painting",
+            sales: 12
+          }, {
+            region: "Dutch golden age painting",
+            state: "Genre_art",
+            sales: 19
+          }, {
+            region: "Dutch golden age painting",
+            state: "_Portrait",
+            sales: 30
+          },  {
+            region: "Baroque",
+            state: "Nude",
+            sales: 6
+          }, {
+            region: "Baroque",
+            state: "Allegory",
+            sales: 6
+          }, {
+            region: "Baroque",
+            state: "History painting",
+            sales: 7
+          }, {
+            region: "Baroque",
+            state: "Self-portrait",
+            sales: 8
+          }, {
+            region: "Baroque",
+            state: "Mythological painting",
+            sales: 29
+          }, {
+            region: "Baroque",
+            state: "Genre art",
+            sales: 30
+          }, {
+            region: "Baroque",
+            state: "Landscape painting",
+            sales: 36
+          }, {
+            region: "Baroque",
+            state: "Religious art",
+            sales: 67
+          }, {
+            region: "Baroque",
+            state: "Portrait",
+            sales: 67
+          }];
+          
+          
+          // Create axes
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+          var yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
+            categoryField: "state",
+            renderer: am5xy.AxisRendererY.new(root, {
+              minGridDistance: 10,
+              minorGridEnabled: true
+            }),
+          }));
+          
+          yAxis.get("renderer").labels.template.setAll({
+            fontSize: 12,
+            location: 0.5
+          })
+      
+          yAxis.data.setAll(data);
+      
+          yAxis.get("renderer").labels.template.adapters.add("text", function(text, target) {
+          if (target.dataItem && target.dataItem.dataContext && target.dataItem.dataContext.state) {
+              return String(target.dataItem.dataContext.state).replaceAll('_', ' ').replaceAll('  ', ' ').replaceAll('  ', ' ');
+          }
+          return text;
+          });
+      
+          
+      
+          
+          var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+            renderer: am5xy.AxisRendererX.new(root, {}),
+            tooltip: am5.Tooltip.new(root, {})
+          }));
+          
+          
+          // Add series
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+          var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueXField: "sales",
+            categoryYField: "state",
+            tooltip: am5.Tooltip.new(root, {
+              pointerOrientation: "horizontal"
+            })
+          }));
+          
+          series.columns.template.setAll({
+            tooltipText: "{categoryY}: [bold]{valueX}[/]",
+            width: am5.percent(90),
+            strokeOpacity: 0
+          });
+      
+      
+          
+          series.columns.template.adapters.add("fill", function(fill, target) {
+            if (target.dataItem) {
+              switch(target.dataItem.dataContext.region) {
+                case "Realism":
+                  return chart.get("colors").getIndex(0);
+                  break;
+                case "Impressionism":
+                  return chart.get("colors").getIndex(1);
+                  break;
+                case "Dutch golden age painting":
+                  return chart.get("colors").getIndex(2);
+                  break;
+                case "Baroque":
+                  return chart.get("colors").getIndex(3);
+                  break;
               }
             }
+            return fill;
+          });
+          series.columns.template.adapters.add("tooltipText", function(text, target) {
+              if (target.dataItem && target.dataItem.dataContext && target.dataItem.dataContext.state) {
+                return String(target.dataItem.dataContext.state).replaceAll('_', ' ').replaceAll('  ', ' ').replaceAll('  ', ' ') + ": [bold]" + target.dataItem.dataContext.sales + "[/]";
+              }
+              return text;
+            });
+          
+          series.data.setAll(data);
+          
+          function createRange(label, category, color) {
+            var rangeDataItem = yAxis.makeDataItem({
+              category: category
+            });
+            
+            var range = yAxis.createAxisRange(rangeDataItem);
+            
+            rangeDataItem.get("label").setAll({
+              fill: color,
+              text: label,
+              location: 1,
+              fontWeight: "bold",
+              dx: -130
+            });
+          
+            rangeDataItem.get("grid").setAll({
+              stroke: color,
+              strokeOpacity: 1,
+              location: 1
+            });
+            
+            rangeDataItem.get("tick").setAll({
+              stroke: color,
+              strokeOpacity: 1,
+              location: 1,
+              visible: true,
+              length: 130
+            });
+            
+            legendData.push({ name: label, color: color });
+            
+          }
+          
+          createRange("Realism", "___Portrait", chart.get("colors").getIndex(0));
+          createRange("Impressionism", "Genre__art", chart.get("colors").getIndex(1));
+          createRange("Dutch golden age painting", "Genre_art", chart.get("colors").getIndex(2));
+          createRange("Baroque", "Portrait", chart.get("colors").getIndex(3));
+          
+          legend.data.setAll(legendData);
+          
+          // Add cursor
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+          var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+            xAxis: xAxis,
+            yAxis: yAxis
+          }));
+          
+          
+          // Make stuff animate on load
+          // https://www.amcharts.com/docs/v5/concepts/animations/
+          series.appear();
+          chart.appear(1000, 100);
+          
+          }); // end am5.ready()
+        </script>
+        <div id="viz4"></div>
+        <!-- End Viz4 -->
+        
+        <h4><center>Finally, let's group genres into clusters and see how their frequency changes through the movements:</center></h4>
+        <!-- Viz5 -->
+        <div id='viz5'></div>
+        <script>
+          var trace1 = {
+            x: ['Baroque', 'Dutch golden age painting', 'Impressionism', 'Realism'],
+            y: [18, 7, 3, 5],
+            name: 'Still',
+            type: 'bar',
+          };
+          
+          var trace2 = {
+            x: ['Baroque', 'Dutch golden age painting', 'Impressionism', 'Realism'],
+            y: [80, 32, 45, 22],
+            name: 'Portrait',
+            type: 'bar',
+          };
+          
+          var trace3 = {
+            x: ['Baroque', 'Dutch golden age painting', 'Impressionism', 'Realism'],
+            y: [38, 13, 41, 6],
+            name: 'Scape',
+            type: 'bar',
+          };
+          var trace4 = {
+            x: ['Baroque', 'Dutch golden age painting', 'Impressionism', 'Realism'],
+            y: [160, 43, 80, 78],
+            name: 'Other',
+            type: 'bar',
+          };
+          
+          var data = [trace1, trace2, trace3, trace4];
+          
+          var layout = {
+            scattermode: 'group',
+            title: 'Grouped genres by movement',
+            xaxis: {title: 'Movements'},
+            yaxis: {title: 'Number of occurences per genre'},
+            barcornerradius: 15,
+          };
+          
+          Plotly.newPlot('viz5', data, layout);
           </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div> -->
-            <!-- End testimonial item -->
-
-
-          <!-- </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
+        <!-- End Viz5 -->
       </div>
-
-    </section> -->
-    <!-- /Testimonials Section -->
+      
+    </section><!-- /Services Section -->
 
     <!-- Faq 2 Section -->
     <section id="faq-2" class="faq-2 section">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <!-- <div class="container section-title" data-aos="fade-up">
         <h2>Results</h2>
         <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div><!-- End Section Title -->
+      </div> -->
+      <!-- End Section Title -->
 
-      <div class="container">
+      <!-- <div class="container">
 
         <div class="row justify-content-center">
 
@@ -1025,8 +1941,9 @@
                   <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+              </div> -->
+              <!-- End Faq item-->
+              <!-- 
               <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
                 <i class="faq-icon bi bi-question-circle"></i>
                 <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
@@ -1034,36 +1951,12 @@
                   <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
 
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
 
-              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h3>
-                <div class="faq-content">
-                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-            </div>
+            <!-- </div>
 
           </div>
 
@@ -1071,9 +1964,65 @@
 
       </div>
 
-    </section><!-- /Faq 2 Section -->
+    </section> -->
+    <!-- /Faq 2 Section -->
 
+    <!-- Team Section -->
+    <section id="team" class="team section">
 
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Team</h2>
+      </div><!-- End Section Title -->
+  
+      <div class="container">
+  
+        <div class="row gy-4">
+  
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member d-flex align-items-start">
+              <!-- <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div> -->
+              <div class="member-info">
+                <h4>Francesco Alaimo</h4>
+                <span>Data gathering and analysis</span>
+                <div class="social">
+                  <!-- <a href=""> <i class="bi bi-linkedin"></i> </a> -->
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+  
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member d-flex align-items-start">
+              <!-- <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div> -->
+              <div class="member-info">
+                <h4>Gaia Ortona</h4>
+                <span>Data visualization</span>
+                <div class="social">
+                  <!-- <a href=""> <i class="bi bi-linkedin"></i> </a> -->
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+  
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member d-flex align-items-start">
+              <!-- <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div> -->
+              <div class="member-info">
+                <h4>Chiara Parravicini</h4>
+                <span>Data analysis and storytelling</span>
+                <div class="social">
+                  <!-- <a href=""> <i class="bi bi-linkedin"></i> </a> -->
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+  
+        </div>
+  
+      </div>
+  
+    </section><!-- /Team Section -->
   </main>
 
   <footer id="footer" class="footer">
@@ -1095,7 +2044,7 @@
       </div>
     </div> -->
 
-    <div class="container footer-top">
+    <!-- <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
@@ -1141,9 +2090,11 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
 
     <div class="container copyright text-center mt-4">
+      <p>This is a university project realized for the class of Information Visualization, a.y. 2023-2024, part of the Digital Humanities and Digital Knowledge Master's Degree program.</p>
+      <p>The project is released under CC-BY-4.0 license.</p>
       <p>© <span>Copyright</span> <strong class="px-1 sitename">Arsha</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
