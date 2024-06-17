@@ -1,4 +1,4 @@
-### Changing Focus
+# Changing Focus
 
 This repo is a university project for the class Information Visualization, a.y. 2023-2024, part of the Digital Humanities and Digital Knowledge Master's Degree program. 
 
